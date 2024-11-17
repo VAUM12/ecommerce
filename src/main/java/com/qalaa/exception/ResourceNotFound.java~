@@ -1,0 +1,4 @@
+package com.qalaa.exception;
+
+public class ResourceNotFound {
+}

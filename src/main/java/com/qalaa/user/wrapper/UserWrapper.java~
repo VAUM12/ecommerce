@@ -1,0 +1,4 @@
+package com.qalaa.user.wrapper;
+
+public class UserWrapper {
+}

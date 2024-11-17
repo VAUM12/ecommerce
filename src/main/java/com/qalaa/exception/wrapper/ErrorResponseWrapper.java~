@@ -1,0 +1,4 @@
+package com.qalaa.exception.wrapper;
+
+public class ErrorResponseWrapper {
+}
