@@ -46,8 +46,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponseWrapper);
     }
 
-    @ExceptionHandler(CustomeException.class)
-    public ResponseEntity<ErrorResponseWrapper> handelCustomeException(CustomeException exception, WebRequest webRequest) {
+    @ExceptionHandler(CustomException.class)
+    public ResponseEntity<ErrorResponseWrapper> handelCustomException(CustomException exception, WebRequest webRequest) {
 
         ErrorResponseWrapper errorResponseWrapper = new ErrorResponseWrapper();
         errorResponseWrapper.setMessage(exception.getMessage());
@@ -67,4 +67,6 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         errorResponseWrapper.setApiPath(webRequest.getDescription(false));
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponseWrapper);
     }
+
+
 }

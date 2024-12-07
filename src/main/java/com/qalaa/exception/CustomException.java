@@ -4,9 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-public class CustomeException extends RuntimeException {
+public class CustomException extends RuntimeException {
 
-    public CustomeException(String message) {
+    public CustomException(String message) {
         super(message);
     }
 }

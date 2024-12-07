@@ -25,12 +25,33 @@ public class UserController {
     }
 
     @PostMapping("/verify-otp")
-    private ResponseEntity<Object> verifyOtp(@RequestParam @Email String email, @RequestParam String otp) {
+    public ResponseEntity<Object> verifyOtp(@RequestParam @Email String email, @RequestParam String otp) {
         UserWrapper userWrapper = userService.verifyOtp(email, otp);
         if(userWrapper == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid OTP.");
         }
         return ResponseEntity.ok(userWrapper);
 
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<Object>login(@RequestParam String email,@RequestParam String password ){
+        return ResponseEntity.ok(userService.login(email,password));
+    }
+
+    @PostMapping("/resend-otp")
+    public ResponseEntity<Object>SendOtp(@RequestParam @Email String email) {
+        return ResponseEntity.ok(userService.sendOtp(email));
+    }
+
+    @PostMapping("/forgot-password-send-otp")
+    public ResponseEntity<Object> forgotPassword(@RequestParam @Email String email) {
+        return ResponseEntity.ok(userService.sendOtpForgotPassword(email));
+    }
+
+    @PostMapping("/forgot-password-verify-otp")
+    public ResponseEntity<Object> forgotPasswordVerifyOtp(@RequestParam @Email String email, @RequestParam String otp, @RequestParam String newPassword) {
+        UserWrapper userWrapper = userService.updatePassword(email, otp,newPassword);
+        return ResponseEntity.ok("user password updated for: " + userWrapper.getEmail());
     }
 }

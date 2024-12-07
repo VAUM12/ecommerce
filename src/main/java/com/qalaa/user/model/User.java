@@ -5,6 +5,8 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
+import java.util.Date;
+
 @Entity
 @Table(name="users")
 @Data
@@ -29,6 +31,12 @@ public class User {
     private String password;
 
     private String otp;
+
+    private Date expirationTimeOfOtp;
+
+    private String forgotPasswordOtp;
+
+    private Date expirationTimeOfForgotPasswordOtp;
 
     private boolean isVerified;
 
