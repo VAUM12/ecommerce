@@ -70,7 +70,7 @@ public class UserServiceImpl implements UserService {
             userRepository.save(existUser.get());
             return UserMapper.mapToUserWrapper(existUser.get());
         }
-        throw new ResourceNotFoundException("Invalid otp.");
+        throw new CustomException("Invalid otp.");
     }
 
     @Override

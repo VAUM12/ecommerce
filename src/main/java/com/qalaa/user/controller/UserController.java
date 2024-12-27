@@ -3,6 +3,8 @@ package com.qalaa.user.controller;
 import com.qalaa.user.model.User;
 import com.qalaa.user.service.UserService;
 import com.qalaa.user.wrapper.UserWrapper;
+import com.qalaa.util.ApiResponse;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.constraints.Email;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,39 +21,37 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/register")
-    public ResponseEntity<Object> register(@RequestBody UserWrapper userWrapper) {
+    public ResponseEntity<ApiResponse<String>> register(@RequestBody UserWrapper userWrapper, HttpServletRequest request) {
         User registeredUser= userService.registerUser(userWrapper);
-        return ResponseEntity.ok("User registered. OTP sent to: " + registeredUser.getMobileNumber());
+        return ResponseEntity.ok(new ApiResponse<>("success", "User registered. OTP sent to: " + registeredUser.getMobileNumber(), null, request.getRequestURI()));
     }
 
     @PostMapping("/verify-otp")
-    public ResponseEntity<Object> verifyOtp(@RequestParam @Email String email, @RequestParam String otp) {
+    public ResponseEntity<ApiResponse<UserWrapper>> verifyOtp(@RequestParam @Email String email, @RequestParam String otp,HttpServletRequest request) {
         UserWrapper userWrapper = userService.verifyOtp(email, otp);
-        if(userWrapper == null) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid OTP.");
-        }
-        return ResponseEntity.ok(userWrapper);
+        return ResponseEntity.ok(new ApiResponse<>("success", "OTP verified successfully", userWrapper, request.getRequestURI()));
 
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Object>login(@RequestParam String email,@RequestParam String password ){
-        return ResponseEntity.ok(userService.login(email,password));
+    public ResponseEntity<ApiResponse<UserWrapper>>login(@RequestParam String email,@RequestParam String password,HttpServletRequest request ){
+        return ResponseEntity.ok(new ApiResponse<>("success", "Login successful", userService.login(email, password), "/api/user/login"));
     }
 
     @PostMapping("/resend-otp")
-    public ResponseEntity<Object>SendOtp(@RequestParam @Email String email) {
-        return ResponseEntity.ok(userService.sendOtp(email));
+    public ResponseEntity<ApiResponse<UserWrapper>>SendOtp(@RequestParam @Email String email,HttpServletRequest request) {
+        return ResponseEntity.ok(new ApiResponse<>("success", "OTP resent successfully", userService.sendOtp(email), "/api/user/resend-otp"));
     }
 
     @PostMapping("/forgot-password-send-otp")
-    public ResponseEntity<Object> forgotPassword(@RequestParam @Email String email) {
-        return ResponseEntity.ok(userService.sendOtpForgotPassword(email));
+    public ResponseEntity<ApiResponse<UserWrapper>> forgotPassword(@RequestParam @Email String email,HttpServletRequest request) {
+        return ResponseEntity.ok(new ApiResponse<>("success", "OTP sent for password reset", userService.sendOtpForgotPassword(email), "/api/user/forgot-password-send-otp"));
     }
 
     @PostMapping("/forgot-password-verify-otp")
-    public ResponseEntity<Object> forgotPasswordVerifyOtp(@RequestParam @Email String email, @RequestParam String otp, @RequestParam String newPassword) {
+    public ResponseEntity<ApiResponse<UserWrapper>> forgotPasswordVerifyOtp(@RequestParam @Email String email, @RequestParam String otp, @RequestParam String newPassword,HttpServletRequest request) {
         UserWrapper userWrapper = userService.updatePassword(email, otp,newPassword);
-        return ResponseEntity.ok("user password updated for: " + userWrapper.getEmail());
+
+        return ResponseEntity.ok(new ApiResponse<>("success", "OTP verified successfully", userWrapper, request.getRequestURI()));
     }
 }
