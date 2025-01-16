@@ -10,14 +10,12 @@ import com.qalaa.user.wrapper.UserWrapper;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -127,6 +125,49 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public void sendForgotPasswordLink(String email) {
+        Optional<User> existUser = userRepository.findByEmail(email);
+        if (existUser.isEmpty()){
+            throw new ResourceNotFoundException("User not found.");
+        }
+        User user = existUser.get();
+        String resetToken = UUID.randomUUID().toString();
+        user.setResetToken(resetToken);
+        userRepository.save(user);
+
+        String resetUrl = "http://localhost:8081/api/user/reset-password?token=" + resetToken;
+        String message = "Click the link to reset your password: " + resetUrl;
+        constructEmail(user.getEmail(), "Password Reset Request", message);
+
+    }
+
+    @Override
+    public void resetPassword(String token, String password, String confirmPassword) {
+        if (!password.equals(confirmPassword)) {
+            throw new CustomException("Passwords do not match.");
+        }
+        System.out.println(token);
+        Optional<User> userOptional = userRepository.findByResetToken(token);
+
+        if (userOptional.isEmpty()) {
+            throw new CustomException("Invalid reset token.");
+        }
+        User user = userOptional.get();
+        user.setPassword(password); // Ideally, hash the password before saving
+        user.setResetToken(null); // Clear the reset token
+        userRepository.save(user);
+    }
+
+    public void constructEmail(String to, String subject, String body) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(to);
+        message.setSubject(subject);
+        message.setText(body);
+        message.setFrom(sender);
+
+        javaMailSender.send(message);
+    }
 
     public Map<String, String> constructEmail(User existUser, String purpose) {
             MimeMessage mimeMessage = javaMailSender.createMimeMessage();

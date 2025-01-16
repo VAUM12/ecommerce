@@ -19,4 +19,8 @@ public interface UserService {
     UserWrapper sendOtpForgotPassword(String email);
 
     UserWrapper updatePassword(@Email String email, String otp, String newPassword);
+
+    void sendForgotPasswordLink(@Email String email);
+
+    void resetPassword(String token, String password, String confirmPassword);
 }
