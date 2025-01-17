@@ -1,4 +1,0 @@
-package com.qalaa.jwt.config;
-
-public class JwtAuthenticationFilter {
-}

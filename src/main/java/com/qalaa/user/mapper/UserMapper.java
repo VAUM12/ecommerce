@@ -14,11 +14,12 @@ public class UserMapper {
 
     }
 
-    public static UserWrapper mapToUserWrapper(User user) {
+    public static UserWrapper mapToUserWrapper(User user,String token) {
         UserWrapper userWrapper = new UserWrapper();
         userWrapper.setName(user.getName());
         userWrapper.setEmail(user.getEmail());
         userWrapper.setMobileNumber(user.getMobileNumber());
+        userWrapper.setToken(token);
         return userWrapper;
     }
 }

@@ -17,48 +17,37 @@ import java.util.List;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfiguration {
-    private final AuthenticationProvider authenticationProvider;
-    private final JwtAuthenticationFilter jwtAuthenticationFilter;
+	private final AuthenticationProvider authenticationProvider;
+	private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
-    public WebSecurityConfiguration(
-            JwtAuthenticationFilter jwtAuthenticationFilter,
-            AuthenticationProvider authenticationProvider
-    ) {
-        this.authenticationProvider = authenticationProvider;
-        this.jwtAuthenticationFilter = jwtAuthenticationFilter;
-    }
+	public WebSecurityConfiguration(JwtAuthenticationFilter jwtAuthenticationFilter,
+			AuthenticationProvider authenticationProvider) {
+		this.authenticationProvider = authenticationProvider;
+		this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+	}
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf()
-                .disable()
-                .authorizeHttpRequests()
-                .requestMatchers("/auth/**")
-                .permitAll()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+	@Bean
+	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+		http.csrf().disable().authorizeHttpRequests().requestMatchers("/swagger-ui/**","/swagger-resources/**","/v3/api-docs/**","/api/user/**").permitAll().anyRequest()
+				.authenticated().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+				.authenticationProvider(authenticationProvider)
+				.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
-        return http.build();
-    }
+		return http.build();
+	}
 
-    @Bean
-    CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
+	@Bean
+	CorsConfigurationSource corsConfigurationSource() {
+		CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.setAllowedOrigins(List.of("http://localhost:8005"));
-        configuration.setAllowedMethods(List.of("GET","POST"));
-        configuration.setAllowedHeaders(List.of("Authorization","Content-Type"));
+		configuration.setAllowedOrigins(List.of("http://localhost:8282"));
+		configuration.setAllowedMethods(List.of("GET", "POST"));
+		configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
 
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 
-        source.registerCorsConfiguration("/**",configuration);
+		source.registerCorsConfiguration("/**", configuration);
 
-        return source;
-    }
+		return source;
+	}
 }

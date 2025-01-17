@@ -1,5 +1,6 @@
 package com.qalaa.jwt.config;
 
+import com.qalaa.user.model.User;
 import com.qalaa.user.reposotory.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,8 +22,13 @@ public class JwtConfiguration {
 
     @Bean
     UserDetailsService userDetailsService() {
-        return username -> userRepository.findByEmail(username)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        return username -> {
+            System.out.println("Username passed to UserDetailsService: " + username);
+            User user= userRepository.findByEmail(username)
+                    .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+            System.out.print(user);
+            return user;
+        };
     }
 
     @Bean
