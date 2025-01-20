@@ -1,6 +1,7 @@
 package com.qalaa.exception;
 
 import com.qalaa.exception.wrapper.ErrorResponseWrapper;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;

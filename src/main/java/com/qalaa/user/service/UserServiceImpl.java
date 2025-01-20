@@ -60,15 +60,18 @@ public class UserServiceImpl implements UserService {
 			existUser.get().setPassword(passwordEncoder.encode(userWrapper.getPassword()));
 			existUser.get().setName(userWrapper.getName());
 			existUser.get().setMobileNumber(userWrapper.getMobileNumber());
-//			constructEmail(existUser.get(), "generalOtp");
-			return userRepository.save(existUser.get());		
+			constructEmail(existUser.get(), "generalOtp");
+			return existUser.get();
 		}
 
+		if(userRepository.existsByMobileNumber(userWrapper.getMobileNumber())){
+			throw new CustomException("User Mobile number already exist.");
+		}
 		User user = UserMapper.mapToUserWrapper(userWrapper);
 		user.setPassword(passwordEncoder.encode(userWrapper.getPassword()));
 		user.setVerified(false);
-//		constructEmail(user, "generalOtp");
-	    return userRepository.save(user);
+		constructEmail(user, "generalOtp");
+	    return user;
 	}
 
 	@Override
@@ -102,11 +105,11 @@ public class UserServiceImpl implements UserService {
 		boolean matches = passwordEncoder.matches(password, existUser.get().getPassword());
 		System.out.println("Password matches: " + matches);
 		
-//		try {
+		try {
 			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email,password));
-//	    } catch (AuthenticationException ex) {
-//	        throw new CustomException("Invalid email or password.");
-//	    }
+	    } catch (AuthenticationException ex) {
+	        throw new CustomException("Invalid email or password.");
+	    }
         String jwtToken = jwtService.generateToken(existUser.get());
 
 		return UserMapper.mapToUserWrapper(existUser.get(),jwtToken);
@@ -240,8 +243,7 @@ public class UserServiceImpl implements UserService {
 			jsonResponse.put("message", "Email sent successfully");
 
 		} catch (Exception e) {
-//			sentryService.exception("Email Service Not Working", "Email Service",
-//					"An exception occurred while sending email", e.toString());
+
 			jsonResponse.put("status", "error");
 			System.out.println(e.toString());
 			jsonResponse.put("message", "Error sending email");
