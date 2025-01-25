@@ -1,0 +1,7 @@
+# Ignore target directory and class files
+target/
+*.class
+*.jar
+*.war
+*.log
+*.tmp
