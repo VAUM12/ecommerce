@@ -130,7 +130,7 @@ public class UserServiceImpl implements UserService {
         } catch (AuthenticationException ex) {
             throw new CustomException("Invalid email or password.");
         }
-        String jwtToken = jwtService.generateToken(existUser.get(), existUser.get().getId(), existUser.get().getName());
+        String jwtToken = jwtService.generateToken(existUser.get(), existUser.get().getId(), existUser.get().getRole().name());
         return UserMapper.mapToUserWrapper(existUser.get(), jwtToken);
     }
 

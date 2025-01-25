@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="287df4b3-8238-4aec-a3e7-432b6d53542c" name="Changes" comment="added address functionality, added cartfuntionality,added WishList functionality, added role create three email on app start up,added admin access inside the product and categories api" />
+    <list default="true" id="287df4b3-8238-4aec-a3e7-432b6d53542c" name="Changes" comment="added address functionality, added cartfuntionality,added WishList functionality, added role create three email on app start up,added admin access inside the product and categories api">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qalaa/user/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qalaa/user/service/UserServiceImpl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +64,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.QalaaApplication.executor": "Debug",
+    "Application.QalaaApplication.executor": "Run",
     "Maven.clean install.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
