@@ -124,13 +124,31 @@ public class UserServiceImpl implements UserService {
 		if (!existUser.get().isVerified()) {
 			throw new CustomException("User not verified.");
 		}
+<<<<<<< .mine
 
 		try {
+
+
+
+=======
+		
+		boolean matches = passwordEncoder.matches(password, existUser.get().getPassword());
+		System.out.println("Password matches: " + matches);
+		
+		try {
+>>>>>>> .theirs
 			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email,password));
+<<<<<<< .mine
 	    } catch (AuthenticationException ex) {
 	        throw new CustomException("Invalid email or password.");
 	    }
         String jwtToken = jwtService.generateToken(existUser.get(),existUser.get().getId(),existUser.get().getName());
+=======
+	    } catch (AuthenticationException ex) {
+	        throw new CustomException("Invalid email or password.");
+	    }
+        String jwtToken = jwtService.generateToken(existUser.get());
+>>>>>>> .theirs
 
 		return UserMapper.mapToUserWrapper(existUser.get(),jwtToken);
 
