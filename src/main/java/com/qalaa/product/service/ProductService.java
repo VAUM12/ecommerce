@@ -7,13 +7,14 @@ import java.util.Optional;
 
 public interface ProductService {
 
-    public List<Product>getAllProducts();
+    public List<Product> getAllProducts();
 
     public Product getProductById(Long id);
 
-    public Product createProduct(Product product,Long categoryId);
+    public Product createProduct(Product product, Long categoryId);
 
-    public Product updateProduct(Long id,Product product,Long categoryId);
+    public Product updateProduct(Long id, Product product, Long categoryId);
 
     public void deleteProduct(Long id);
+
 }

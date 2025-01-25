@@ -5,6 +5,7 @@ import com.qalaa.category.service.CategoryService;
 import com.qalaa.exception.ResourceNotFoundException;
 import com.qalaa.product.model.Product;
 import com.qalaa.product.repository.ProductRepository;
+import com.qalaa.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,9 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private CategoryService categoryService;
 
+    @Autowired
+    private UserService userService;
+
     @Override
     public List<Product> getAllProducts() {
         return productRepository.findAll();
@@ -32,6 +36,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product createProduct(Product product, Long categoryId) {
+
         Category category= categoryService.getCategoryById(categoryId).orElseThrow(()->new ResourceNotFoundException("Category not found"));
         product.setCategory(category);
         return productRepository.save(product);
@@ -39,6 +44,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product updateProduct(Long id, Product product,Long categoryId) {
+
         Category category= categoryService.getCategoryById(categoryId).orElseThrow(()->new ResourceNotFoundException("Category not found"));
         return productRepository.findById(id).map(existProduct -> {
             existProduct.setName(product.getName());
@@ -55,4 +61,6 @@ public class ProductServiceImpl implements ProductService {
     public void deleteProduct(Long id) {
         productRepository.delete(productRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("Product not found with id: " + id)));
     }
+
+
 }

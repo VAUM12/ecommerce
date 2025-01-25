@@ -45,7 +45,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 		try {
 			final String jwt = authHeader.substring(7);
 			final String userEmail = jwtService.extractUsername(jwt);
-
+			Long userId = Long.parseLong(jwtService.getUserIdFromToken(jwt));
+			String role = jwtService.extractRole(jwt);
 			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
 			if (userEmail != null && authentication == null) {
@@ -59,6 +60,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 					SecurityContextHolder.getContext().setAuthentication(authToken);
 				}
 			}
+			request.setAttribute("id", userId);
+			request.setAttribute("role", role);
 
 			filterChain.doFilter(request, response);
 		} catch (Exception exception) {

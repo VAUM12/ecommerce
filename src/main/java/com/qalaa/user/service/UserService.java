@@ -10,6 +10,10 @@ public interface UserService {
 
     User registerUser(UserWrapper userWrapper);
 
+    User getUser(Long userId);
+
+    UserWrapper getUserWrapper(Long userId);
+
     UserWrapper verifyOtp(@Email String email, String otp);
 
     UserWrapper login(String email, String password);

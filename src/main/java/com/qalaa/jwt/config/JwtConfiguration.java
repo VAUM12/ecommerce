@@ -26,7 +26,6 @@ public class JwtConfiguration {
             System.out.println("Username passed to UserDetailsService: " + username);
             User user= userRepository.findByEmail(username)
                     .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-            System.out.print(user);
             return user;
         };
     }
