@@ -4,59 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="287df4b3-8238-4aec-a3e7-432b6d53542c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qalaa/category/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qalaa/category/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qalaa/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qalaa/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qalaa/jwt/config/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qalaa/jwt/config/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qalaa/jwt/config/JwtConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qalaa/jwt/config/JwtConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qalaa/jwt/config/WebSecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qalaa/jwt/config/WebSecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qalaa/jwt/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qalaa/jwt/service/JwtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qalaa/product/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qalaa/product/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qalaa/product/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qalaa/product/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qalaa/product/service/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qalaa/product/service/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qalaa/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qalaa/user/controller/UserAuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qalaa/user/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qalaa/user/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qalaa/user/reposotory/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qalaa/user/reposotory/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qalaa/user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qalaa/user/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qalaa/user/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qalaa/user/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qalaa/user/wrapper/UserWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qalaa/user/wrapper/UserWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/com.qalaa/qalaa/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/com.qalaa/qalaa/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/QalaaApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/QalaaApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/category/controller/CategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/category/controller/CategoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/category/model/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/category/model/Category.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/category/repository/CategoryRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/category/repository/CategoryRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/category/service/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/category/service/CategoryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/category/service/CategoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/category/service/CategoryServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/comman_message/EmailTemplate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/comman_message/EmailTemplate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/exception/CustomException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/exception/CustomException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/exception/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/exception/GlobalExceptionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/exception/ResourceNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/exception/ResourceNotFoundException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/exception/wrapper/ErrorResponseWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/exception/wrapper/ErrorResponseWrapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/jwt/config/JwtAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/jwt/config/JwtAuthenticationFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/jwt/config/JwtConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/jwt/config/JwtConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/jwt/config/WebSecurityConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/jwt/config/WebSecurityConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/jwt/service/JwtService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/jwt/service/JwtService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/product/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/product/controller/ProductController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/product/model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/product/model/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/product/repository/ProductRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/product/repository/ProductRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/product/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/product/service/ProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/product/service/ProductServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/product/service/ProductServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/user/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/user/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/user/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/user/mapper/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/user/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/user/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/user/reposotory/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/user/reposotory/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/user/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/user/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/user/service/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/user/service/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/user/wrapper/UserWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/user/wrapper/UserWrapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qalaa/util/ApiResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qalaa/util/ApiResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/qalaa/QalaaApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/qalaa/QalaaApplicationTests.class" afterDir="false" />
-    </list>
+    <list default="true" id="287df4b3-8238-4aec-a3e7-432b6d53542c" name="Changes" comment="added address functionality, added cartfuntionality,added WishList functionality, added role create three email on app start up,added admin access inside the product and categories api" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,7 +46,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -185,7 +133,20 @@
       <option name="presentableId" value="Default" />
       <updated>1737118009199</updated>
     </task>
+    <task id="LOCAL-00001" summary="added address functionality, added cartfuntionality,added WishList functionality, added role create three email on app start up,added admin access inside the product and categories api">
+      <option name="closed" value="true" />
+      <created>1737822515853</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1737822515853</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added address functionality, added cartfuntionality,added WishList functionality, added role create three email on app start up,added admin access inside the product and categories api" />
+    <option name="LAST_COMMIT_MESSAGE" value="added address functionality, added cartfuntionality,added WishList functionality, added role create three email on app start up,added admin access inside the product and categories api" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

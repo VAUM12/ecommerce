@@ -1,0 +1,4 @@
+package com.qalaa.cart.wrapper;
+
+public class CartRequest {
+}

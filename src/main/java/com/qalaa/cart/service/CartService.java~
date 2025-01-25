@@ -1,0 +1,16 @@
+package com.qalaa.cart.service;
+
+import com.qalaa.cart.model.Cart;
+
+import java.util.List;
+
+public interface CartService {
+
+    public List<Cart> getCartByUserId(Long userId);
+
+    public Cart addToCart(Long userId, Long productId, Integer quantity);
+
+    public void removeFromCart(Long userId,Long id);
+
+    public Cart updateToCart(Long userId, Long productId, Integer quantity);
+}
